@@ -10,11 +10,19 @@ import javax.persistence.OneToMany;
 @Entity
 public class Freelancer extends User {
 	
-	@OneToMany(mappedBy = "annonce", fetch = FetchType.EAGER)
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7312823705228699573L;
+	
+	@OneToMany(mappedBy = "freelancer", fetch = FetchType.EAGER)
 	private List<Annonce> annonces;
 
 	public Freelancer(int id, String name, String email, String password) {
 		super(id, name, email, password);
+	}
+
+	public Freelancer() {
 	}
 
 }

@@ -1,19 +1,32 @@
 package com.beans;
 
+import java.io.Serializable;
 import java.util.LinkedList;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Annonce {
+public class Annonce implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2268692178986884414L;
+	
 	@Id
 	private int id;
 	private String titre;
 	private String description;
 	private LinkedList<String> imagesList;
-	@ManyToOne
-	@JoinColumn(name = "freelancer_id")
-	private Freelancer freelancer;
+	 @ManyToOne
+	 @JoinColumn(name = "freelancer_id")
+	 private Freelancer freelancer;
+	
+	public Annonce() {
+	}
 	
 	public Annonce(int id, String titre, String description, LinkedList<String> imagesList) {
 		super();

@@ -1,11 +1,18 @@
 package com.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class User {
+public abstract class User implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6368580808114268294L;
+	
 	@Id
 	private int id;
 	private String name;
