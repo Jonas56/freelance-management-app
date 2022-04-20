@@ -72,7 +72,7 @@ public class AnnonceRepository {
 		return null;
 	}
 
-	public List<Annonce> getAllAnnonce() {
+	public List<Annonce> getAllAnnonces() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		try {
