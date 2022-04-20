@@ -6,8 +6,6 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import net.bytebuddy.asm.Advice.This;
-
 public class HibernateUtil {
     private static StandardServiceRegistry standardServiceRegistry;
     private static SessionFactory sessionFactory;
