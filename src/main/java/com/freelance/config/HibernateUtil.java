@@ -31,9 +31,13 @@ public class HibernateUtil {
             }
         }
     }
+
     //Utility method to return SessionFactory
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-    
+
+    public static void main(String[] args) {
+       HibernateUtil.getSessionFactory().openSession();
+    }
 }

@@ -5,15 +5,12 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "freelancers")
 public class Freelancer extends User {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7312823705228699573L;
 	
 	@OneToMany(mappedBy = "freelancer", fetch = FetchType.EAGER)
 	private List<Annonce> annonces;
