@@ -9,7 +9,7 @@ public class AnnonceImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     @NotEmpty
     @Column(name = "image_link")
     private String imageLink;
@@ -25,11 +25,11 @@ public class AnnonceImage {
         this.imageLink = imageLink;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -47,5 +47,14 @@ public class AnnonceImage {
 
     public void setAnnonce(Annonce annonce) {
         this.annonce = annonce;
+    }
+
+    @Override
+    public String toString() {
+        return "AnnonceImage{" +
+                "id=" + id +
+                ", imageLink='" + imageLink + '\'' +
+                ", annonce=" + annonce +
+                '}';
     }
 }

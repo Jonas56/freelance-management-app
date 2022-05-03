@@ -76,4 +76,13 @@ public class Annonce implements Serializable {
         this.freelancer = freelancer;
     }
 
+    @Override
+    public String toString() {
+        return "Annonce{" +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
+                ", description='" + description + '\'' +
+                ", annonceImages=" + annonceImages +
+                '}';
+    }
 }
