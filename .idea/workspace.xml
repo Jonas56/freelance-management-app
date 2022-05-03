@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5785e6b1-7c72-4314-ba69-f5986b269b08" name="Changes" comment="" />
+    <list default="true" id="5785e6b1-7c72-4314-ba69-f5986b269b08" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +84,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -90,6 +93,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\IdeaProjects\freelance-management-app\.idea" />
       <recent name="C:\Users\lenovo\IdeaProjects\freelance-management-app\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -333,7 +337,7 @@
       <workItem from="1651362180434" duration="6175000" />
       <workItem from="1651376347300" duration="4868000" />
       <workItem from="1651446599381" duration="238000" />
-      <workItem from="1651518672024" duration="17665000" />
+      <workItem from="1651518672024" duration="17287000" />
     </task>
     <servers />
   </component>
