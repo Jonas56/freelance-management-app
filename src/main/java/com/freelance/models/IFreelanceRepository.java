@@ -13,5 +13,5 @@ public interface IFreelanceRepository {
 
     public Freelancer findById(Integer id);
 
-    public boolean deleteAnnonce(Integer id);
+    public boolean delete(Freelancer freelancer);
 }

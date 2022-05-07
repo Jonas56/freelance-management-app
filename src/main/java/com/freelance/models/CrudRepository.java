@@ -72,14 +72,12 @@ public abstract class  CrudRepository<U, ID> {
         return null;
     }
 
-    public boolean deleteAnnonce(ID id){
+    public boolean delete(U entity){
         // TODO: Handle Integer type exception
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         try {
-            Annonce annonce = new Annonce();
-            annonce.setId((Integer) id);
-            session.delete(annonce);
+            session.delete(entity);
             session.flush();
             tx.commit();
             return true;

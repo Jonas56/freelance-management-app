@@ -19,7 +19,9 @@ public class Annonce implements Serializable {
     @NotEmpty
     private String description;
 
-    @OneToMany(mappedBy = "annonce", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "annonce",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
     private List<AnnonceImage> annonceImages;
 
 
@@ -30,7 +32,7 @@ public class Annonce implements Serializable {
     public Annonce() {
     }
 
-    public Annonce(String titre, String description, LinkedList<AnnonceImage> annonceImages) {
+    public Annonce(String titre, String description, List<AnnonceImage> annonceImages) {
         this.titre = titre;
         this.description = description;
         this.annonceImages = annonceImages;
