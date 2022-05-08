@@ -118,6 +118,27 @@ public class AnnonceService {
             req.getRequestDispatcher("404.jsp").forward(req, res);
         }
     }
+
+    public void updateAnnonceUser(HttpServletRequest req, HttpServletResponse res, Annonce annonce)
+            throws ServletException, IOException {
+        String message = annonceHelper.findByIdAndUpdate(req.getParameter("annonceId"), annonce);
+        req.setAttribute("errorMessage", message);
+        // TODO: replace with appropriate page
+        req.getRequestDispatcher("main.jsp").forward(req, res);
+    }
+
+    public void updateAnnonceAdmin(HttpServletRequest req, HttpServletResponse res,
+                                   Annonce annonce)
+            throws ServletException, IOException {
+        String message = "Unable to update this annonce!";
+        boolean annonceUpdated = annonceRepository.update(annonce);
+        if (annonceUpdated) {
+            message = "Annonce updated successfully!";
+        }
+        req.setAttribute("errorMessage", message);
+        // TODO: replace with appropriate page
+        req.getRequestDispatcher("admin.jsp").forward(req, res);
+    }
 }
 
 
