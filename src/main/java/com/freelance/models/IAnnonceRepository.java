@@ -12,5 +12,7 @@ public interface IAnnonceRepository {
 
     public Annonce findById(Integer id);
 
-    public boolean deleteAnnonce(Integer id);
+    public boolean delete(Annonce annonce);
+
+    public boolean update(Annonce annonce);
 }
