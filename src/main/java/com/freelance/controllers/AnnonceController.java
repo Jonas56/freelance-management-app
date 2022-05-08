@@ -1,18 +1,17 @@
 package com.freelance.controllers;
 
 import com.freelance.beans.Annonce;
-import com.freelance.beans.AnnonceImage;
 import com.freelance.models.AnnonceRepository;
 import com.freelance.models.IAnnonceRepository;
 import com.freelance.services.AnnonceService;
 import com.freelance.utils.AnnonceHelper;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 
 @WebServlet(name = "AnnonceController",
         description = "Servlet that handles all **Annonce** requests related",
@@ -64,11 +63,18 @@ public class AnnonceController extends HttpServlet {
         // TODO: Check authorization session!
         String requestPath = req.getServletPath();
         Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
-        if (requestPath.equals("/annonces.user")) {
-            annonceService.saveOrUpdateAnnonceUser(req, res, annonce);
-        } else if (requestPath.equals("/annonces.admin")) {
-            annonceService.saveOrUpdateAnnonceAdmin(req, res, annonce);
+        String message = annonceHelper.validateUserInput(annonce);
+        if (message != null) {
+            req.setAttribute("errorMessage", message);
+            req.getRequestDispatcher("main.jsp").forward(req, res);
+        } else {
+            if (requestPath.equals("/annonces.user")) {
+                annonceService.saveOrUpdateAnnonceUser(req, res, annonce);
+            } else if (requestPath.equals("/annonces.admin")) {
+                annonceService.saveOrUpdateAnnonceAdmin(req, res, annonce);
+            }
         }
+
     }
 
     @Override
@@ -78,12 +84,21 @@ public class AnnonceController extends HttpServlet {
         // TODO: Check authorization session!
         String requestPath = req.getServletPath();
         Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
-        // TODO: Add validation constraints
-        if (requestPath.equals("/annonces.user")) {
-            annonceService.saveOrUpdateAnnonceUser(req, res, annonce);
-        } else if (requestPath.equals("/annonces.admin")) {
-            annonceService.saveOrUpdateAnnonceAdmin(req, res, annonce);
+        String message = annonceHelper.validateUserInput(annonce);
+        if (annonce.getId() == null) {
+            message = "Annonce id cannot be null";
         }
+        if (message != null) {
+            req.setAttribute("errorMessage", message);
+            req.getRequestDispatcher("main.jsp").forward(req, res);
+        } else {
+            if (requestPath.equals("/annonces.user")) {
+                annonceService.updateAnnonceUser(req, res, annonce);
+            } else if (requestPath.equals("/annonces.admin")) {
+                annonceService.updateAnnonceAdmin(req, res, annonce);
+            }
+        }
+
     }
 
     @Override
