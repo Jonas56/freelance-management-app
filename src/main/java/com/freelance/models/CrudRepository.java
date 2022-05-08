@@ -1,13 +1,11 @@
 package com.freelance.models;
 
-import com.freelance.beans.Annonce;
 import com.freelance.config.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.persistence.PersistenceException;
-import java.io.Serializable;
 import java.util.List;
 
 public abstract class  CrudRepository<U, ID> {
@@ -78,6 +76,23 @@ public abstract class  CrudRepository<U, ID> {
         Transaction tx = session.beginTransaction();
         try {
             session.delete(entity);
+            session.flush();
+            tx.commit();
+            return true;
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+            tx.rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+
+    public boolean update(U entity){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            session.update(entity);
             session.flush();
             tx.commit();
             return true;
