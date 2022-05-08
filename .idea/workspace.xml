@@ -10,17 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeb650f-e2e1-46f8-b166-4cec3dd2824b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/freelancer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/freelancer_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/freelancer_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/freelancer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/freelancer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/beans/Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/beans/Annonce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/beans/AnnonceImage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/controllers/AnnonceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/controllers/AnnonceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/models/AnnonceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/models/AnnonceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/models/CrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/models/CrudRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/models/FreelancerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/models/FreelancerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/models/IAnnonceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/models/IAnnonceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/models/IFreelanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/models/IFreelanceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/services/AnnonceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/services/AnnonceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/freelance/utils/AnnonceHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/freelance/utils/AnnonceHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
@@ -82,6 +80,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -184,7 +183,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651997132007</updated>
-      <workItem from="1651997143707" duration="6652000" />
+      <workItem from="1651997143707" duration="6858000" />
     </task>
     <servers />
   </component>
