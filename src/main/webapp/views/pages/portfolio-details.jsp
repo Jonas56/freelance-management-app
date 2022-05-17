@@ -17,8 +17,8 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon" />
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="../../assets/img/favicon.png" rel="icon" />
+    <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link
@@ -27,33 +27,26 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet" />
     <link
-            href="../assets/vendor/bootstrap/css/bootstrap.min.css"
+            href="../../assets/vendor/bootstrap/css/bootstrap.min.css"
             rel="stylesheet"
     />
     <link
-            href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css"
             rel="stylesheet"
     />
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link
-            href="../assets/vendor/glightbox/css/glightbox.min.css"
+            href="../../assets/vendor/glightbox/css/glightbox.min.css"
             rel="stylesheet"
     />
-    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="../assets/vendor/fonts/ionicons.min.css" />
-
-    <!-- =======================================================
-  * Template Name: Bocor - v4.7.1
-  * Template URL: https://bootstrapmade.com/bocor-bootstrap-template-nice-animation/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <link rel="stylesheet" href="../../assets/vendor/fonts/ionicons.min.css" />
 </head>
 
 <body>
@@ -137,15 +130,15 @@
                     <div class="portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
                             <div class="swiper-slide">
-                                <img src="../assets/img/portfolio/portfolio-1.jpg" alt="" />
+                                <img src="../../assets/img/portfolio/portfolio-1.jpg" alt="" />
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="../assets/img/portfolio/portfolio-2.jpg" alt="" />
+                                <img src="../../assets/img/portfolio/portfolio-2.jpg" alt="" />
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="../assets/img/portfolio/portfolio-3.jpg" alt="" />
+                                <img src="../../assets/img/portfolio/portfolio-3.jpg" alt="" />
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -232,14 +225,12 @@
 ></a>
 
 <!-- Vendor JS Files -->
-<script src="../assets/vendor/aos/aos.js"></script>
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="../../assets/vendor/aos/aos.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 <!-- Template Main JS File -->
-<script src="../assets/js/main.js"></script>
+<script src="../../assets/js/main.js"></script>
 </body>
 </html>
