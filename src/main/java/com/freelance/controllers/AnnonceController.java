@@ -15,9 +15,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AnnonceController",
         description = "Servlet that handles all **Annonce** requests related",
-        urlPatterns = {
-                "/annonces.user", "/annonces.admin", "/annonce.user", "/annonce.admin"
-        })
+        value = "*.annonce")
 public class AnnonceController extends HttpServlet {
 
     private AnnonceService annonceService;
@@ -38,17 +36,32 @@ public class AnnonceController extends HttpServlet {
         String requestPath = req.getServletPath();
 
         switch (requestPath) {
-            case "/annonces.user":
+            case "/findAllForHome.annonce":
+                annonceService.getAllAnnoncesForHome(req, res);
+                break;
+            case "/findAllForUser.annonce":
                 annonceService.getAllAnnoncesForUser(req, res);
                 break;
-            case "/annonces.admin":
+            case "/findAllForAdmin.annonce":
                 annonceService.getAllAnnoncesForAdmin(req, res);
                 break;
-            case "/annonce.user":
+            case "/findOneForUser.annonce":
                 annonceService.getAnnonceForUser(req, res);
                 break;
-            case "/annonce.admin":
+            case "/findOneForAdmin.annonce":
                 annonceService.getAnnonceForAdmin(req, res);
+                break;
+            case "updateForUser.annonce":
+                annonceService.updateAnnonceUser(req, res);
+                break;
+            case "updateForAdmin.annonce":
+                annonceService.updateAnnonceAdmin(req, res);
+                break;
+            case "deleteForUser":
+                annonceService.deleteAnnonceUser(req, res);
+                break;
+            case "deleteForAdmin":
+                annonceService.deleteAnnonceAdmin(req, res);
                 break;
             default:
                 req.getRequestDispatcher("404.jsp").forward(req, res);
@@ -75,47 +88,5 @@ public class AnnonceController extends HttpServlet {
             }
         }
 
-    }
-
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
-        res.setContentType("text/html");
-        // TODO: Check authorization session!
-        String requestPath = req.getServletPath();
-        Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
-        String message = annonceHelper.validateUserInput(annonce);
-        if (annonce.getId() == null) {
-            message = "Annonce id cannot be null";
-        }
-        if (message != null) {
-            req.setAttribute("errorMessage", message);
-            req.getRequestDispatcher("main.jsp").forward(req, res);
-        } else {
-            if (requestPath.equals("/annonces.user")) {
-                annonceService.updateAnnonceUser(req, res, annonce);
-            } else if (requestPath.equals("/annonces.admin")) {
-                annonceService.updateAnnonceAdmin(req, res, annonce);
-            }
-        }
-
-    }
-
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
-        res.setContentType("text/html");
-        // TODO: Check authorization session!
-        String requestPath = req.getServletPath();
-
-        // Path(/annonces.user)
-        if (requestPath.equals("/annonce.user")) {
-            annonceService.deleteAnnonceUser(req, res);
-        }// Path(/annonces.user)
-        else if (requestPath.equals("/annonce.admin")) {
-            annonceService.deleteAnnonceAdmin(req, res);
-        } else {
-            req.getRequestDispatcher("404.jsp").forward(req, res);
-        }
     }
 }
