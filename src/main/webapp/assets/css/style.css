@@ -330,7 +330,7 @@ h6 {
 }
 #hero h1 {
   margin: 0 0 15px 0;
-  font-size: 48px;
+  font-size: 45px;
   font-weight: 700;
   line-height: 56px;
   color: #d2e0ed;
@@ -350,6 +350,16 @@ h6 {
   display: inline-block;
   background: #fdc134;
 }
+
+#hero .scrollTo {
+  color: #213b52;
+  border-radius: 50px;
+  padding: 8px 35px 10px 35px;
+  border: 2px solid #fdc134;
+  transition: all ease-in-out 0.3s;
+  display: inline-block;
+}
+
 #hero .btn-get-started:hover {
   background: transparent;
   color: #fff;
