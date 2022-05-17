@@ -51,12 +51,6 @@ public class AnnonceController extends HttpServlet {
             case "/findOneForAdmin.annonce":
                 annonceService.getAnnonceForAdmin(req, res);
                 break;
-            case "updateForUser.annonce":
-                annonceService.updateAnnonceUser(req, res);
-                break;
-            case "updateForAdmin.annonce":
-                annonceService.updateAnnonceAdmin(req, res);
-                break;
             case "deleteForUser":
                 annonceService.deleteAnnonceUser(req, res);
                 break;
@@ -81,10 +75,19 @@ public class AnnonceController extends HttpServlet {
             req.setAttribute("errorMessage", message);
             req.getRequestDispatcher("main.jsp").forward(req, res);
         } else {
-            if (requestPath.equals("/annonces.user")) {
-                annonceService.saveOrUpdateAnnonceUser(req, res, annonce);
-            } else if (requestPath.equals("/annonces.admin")) {
-                annonceService.saveOrUpdateAnnonceAdmin(req, res, annonce);
+            switch (requestPath) {
+                case "/annonces.user":
+                    annonceService.saveOrUpdateAnnonceUser(req, res, annonce);
+                    break;
+                case "/annonces.admin":
+                    annonceService.saveOrUpdateAnnonceAdmin(req, res, annonce);
+                    break;
+                case "updateForAdmin.annonce":
+                    annonceService.updateAnnonceAdmin(req, res);
+                    break;
+                case "updateForUser.annonce":
+                    annonceService.updateAnnonceUser(req, res);
+                    break;
             }
         }
 
