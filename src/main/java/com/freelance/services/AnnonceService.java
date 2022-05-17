@@ -21,12 +21,18 @@ public class AnnonceService {
         this.annonceHelper = annonceHelper;
     }
 
+    public void getAllAnnoncesForHome(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        List<Annonce> annonces = annonceRepository.findAll();
+        req.setAttribute("annonces", annonces);
+        req.getRequestDispatcher("/views/pages/home.jsp").forward(req, res);
+    }
+
     public void getAllAnnoncesForUser(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         List<Annonce> annonces = annonceRepository.findAll();
         req.setAttribute("annonces", annonces);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("/main.jsp").forward(req, res);
+        req.getRequestDispatcher("/views/pages/list-services.jsp").forward(req, res);
     }
 
     public void getAllAnnoncesForAdmin(HttpServletRequest req, HttpServletResponse res)
@@ -110,7 +116,7 @@ public class AnnonceService {
     public void deleteAnnonceAdmin(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         try {
-            String message =  annonceHelper.findByIdAndDelete(req.getParameter("annonceId"));
+            String message = annonceHelper.findByIdAndDelete(req.getParameter("annonceId"));
             req.setAttribute("errorMessage", message);
             // TODO: replace with appropriate page
             req.getRequestDispatcher("main.jsp").forward(req, res);
@@ -119,18 +125,35 @@ public class AnnonceService {
         }
     }
 
-    public void updateAnnonceUser(HttpServletRequest req, HttpServletResponse res, Annonce annonce)
+    public void updateAnnonceUser(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        String message = annonceHelper.findByIdAndUpdate(req.getParameter("annonceId"), annonce);
+        Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
+        String message = annonceHelper.validateUserInput(annonce);
+        if (annonce.getId() == null) {
+            message = "Annonce id cannot be null";
+        }
+        if (message != null) {
+            req.setAttribute("errorMessage", message);
+            req.getRequestDispatcher("main.jsp").forward(req, res);
+        }
+        message = annonceHelper.findByIdAndUpdate(req.getParameter("annonceId"), annonce);
         req.setAttribute("errorMessage", message);
         // TODO: replace with appropriate page
         req.getRequestDispatcher("main.jsp").forward(req, res);
     }
 
-    public void updateAnnonceAdmin(HttpServletRequest req, HttpServletResponse res,
-                                   Annonce annonce)
+    public void updateAnnonceAdmin(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        String message = "Unable to update this annonce!";
+        Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
+        String message = annonceHelper.validateUserInput(annonce);
+        if (annonce.getId() == null) {
+            message = "Annonce id cannot be null";
+        }
+        if (message != null) {
+            req.setAttribute("errorMessage", message);
+            req.getRequestDispatcher("main.jsp").forward(req, res);
+        }
+        message = annonceHelper.findByIdAndUpdate(req.getParameter("annonceId"), annonce);
         boolean annonceUpdated = annonceRepository.update(annonce);
         if (annonceUpdated) {
             message = "Annonce updated successfully!";
@@ -139,6 +162,8 @@ public class AnnonceService {
         // TODO: replace with appropriate page
         req.getRequestDispatcher("admin.jsp").forward(req, res);
     }
+
+
 }
 
 
