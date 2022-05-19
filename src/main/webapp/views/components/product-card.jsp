@@ -8,13 +8,11 @@
 <div class="col-md-12 col-lg-4 d-flex" data-aos="fade-right">
     <div class="card">
         <div class="card-img">
-            <img src="../../assets/img/services-1.jpg" alt="...">
+            <img src="${annonce.annonceImages.get(0)}" alt="...">
         </div>
         <div class="card-body">
-            <h5 class="card-title"><a href="">Temporibus laudantium</a></h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+            <h5 class="card-title"><a href="">${annonce.titre}</a></h5>
+            <p class="card-text">${annonce.description}</p>
             <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
         </div>
     </div>

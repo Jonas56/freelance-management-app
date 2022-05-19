@@ -351,6 +351,21 @@ h6 {
   background: #fdc134;
 }
 
+.findOut {
+  color: #000000;
+  border-radius: 20px;
+  padding: 8px 35px 10px 35px;
+  border: 2px solid #fdc134;
+  transition: all ease-in-out 0.3s;
+  display: inline-block;
+  background: #fdc134;
+}
+
+.findOut:hover {
+  background: transparent;
+  color: #000000;
+}
+
 #hero .scrollTo {
   color: #213b52;
   border-radius: 50px;
