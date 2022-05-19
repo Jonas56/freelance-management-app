@@ -13,5 +13,7 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<mapping class="com.freelance.beans.Annonce" />
 		<mapping class="com.freelance.beans.Freelancer" />
+		<mapping class="com.freelance.beans.Mission" />
+		<mapping class="com.freelance.beans.Client" />
 	</session-factory>
 </hibernate-configuration>
