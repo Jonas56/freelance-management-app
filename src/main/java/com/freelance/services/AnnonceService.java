@@ -164,6 +164,32 @@ public class AnnonceService {
     }
 
 
+    public void getAnnonceByName(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        try {
+            String annonceName = req.getParameter("annonceTitle");
+            if (annonceName != null) {
+                List<Annonce> annonces = annonceRepository.findByTitle(annonceName);
+                if (annonces != null) {
+                    req.setAttribute("annonces", annonces);
+                    req.setAttribute("annonceName", annonceName);
+                    req.getRequestDispatcher("views/pages/list-services.jsp").forward(req, res);
+                } else {
+                    req.getRequestDispatcher("404.jsp").forward(req, res);
+                }
+            } else {
+                List<Annonce> annonces = annonceRepository.findAll();
+                if (annonces != null) {
+                    req.setAttribute("annonces", annonces);
+                    req.getRequestDispatcher("views/pages/list-services.jsp").forward(req, res);
+                } else {
+                    req.getRequestDispatcher("404.jsp").forward(req, res);
+                }
+            }
+
+        } catch (Exception e) {
+            req.getRequestDispatcher("404.jsp").forward(req, res);
+        }
+    }
 }
 
 
