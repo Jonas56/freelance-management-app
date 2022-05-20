@@ -45,6 +45,9 @@ public class AnnonceController extends HttpServlet {
             case "/findAllForAdmin.annonce":
                 annonceService.getAllAnnoncesForAdmin(req, res);
                 break;
+            case "/findAnnoncesByName.annonce":
+                annonceService.getAnnonceByName(req, res);
+                break;
             case "/findOneForUser.annonce":
                 annonceService.getAnnonceForUser(req, res);
                 break;
