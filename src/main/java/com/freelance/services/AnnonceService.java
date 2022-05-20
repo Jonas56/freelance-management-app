@@ -50,7 +50,7 @@ public class AnnonceService {
             Annonce annonce = annonceRepository.findById(annonceId);
             if (annonce != null) {
                 req.setAttribute("annonce", annonce);
-                req.getRequestDispatcher("main.jsp").forward(req, res);
+                req.getRequestDispatcher("views/pages/annonce-page.jsp").forward(req, res);
             } else {
                 req.getRequestDispatcher("404.jsp").forward(req, res);
             }
