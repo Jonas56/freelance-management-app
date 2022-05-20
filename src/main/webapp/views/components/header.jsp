@@ -9,15 +9,15 @@
 <header id="header">
     <div class="container d-flex align-items-center justify-content-between">
         <div class="logo">
-            <h1><a href="index.html">GetJob<span>.</span></a></h1>
+            <h1><a href="findAllForHome.annonce">GetJob<span>.</span></a></h1>
         </div>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link active" href="#hero">Home</a></li>
-                <li><a class="nav-link" href="#services">Services</a></li>
-                <li><a class="nav-link" href="#portfolio">Offers</a></li>
-<%--                <li><a class="getstarted" href="#signInUp">Sign in/up</a></li>--%>
-                <li><a class="getstarted" href="#signInUp">My profile</a></li>
+                <li><a class="nav-link active" href="findAllForHome.annonce">Home</a></li>
+                <li><a class="nav-link" href="findAnnoncesByName.annonce">Services</a></li>
+                <li><a class="nav-link" href="#">Offers</a></li>
+<%--                <li><a class="getstarted" href="#signInUp">Sign in</a></li>--%>
+                <li><a class="getstarted" href="#">My profile</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
