@@ -39,6 +39,9 @@ public class AnnonceController extends HttpServlet {
             case "/findAllForHome.annonce":
                 annonceService.getAllAnnoncesForHome(req, res);
                 break;
+            case "/findAllForUserProfile.annonce":
+                annonceService.getAllAnnoncesForProfile(req, res);
+                break;
             case "/findAllForUser.annonce":
                 annonceService.getAllAnnoncesForUser(req, res);
                 break;
@@ -51,13 +54,19 @@ public class AnnonceController extends HttpServlet {
             case "/findOneForUser.annonce":
                 annonceService.getAnnonceForUser(req, res);
                 break;
+            case "/createOneForUser.annonce":
+                annonceService.getCreateAnnonce(req, res);
+                break;
+            case "/findOneForUserProfile.annonce":
+                annonceService.getAnnonceForUserProfile(req, res);
+                break;
             case "/findOneForAdmin.annonce":
                 annonceService.getAnnonceForAdmin(req, res);
                 break;
-            case "deleteForUser":
+            case "/deleteForUser.annonce":
                 annonceService.deleteAnnonceUser(req, res);
                 break;
-            case "deleteForAdmin":
+            case "/deleteForAdmin.annonce":
                 annonceService.deleteAnnonceAdmin(req, res);
                 break;
             default:
@@ -73,25 +82,19 @@ public class AnnonceController extends HttpServlet {
         // TODO: Check authorization session!
         String requestPath = req.getServletPath();
         Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
-        String message = annonceHelper.validateUserInput(annonce);
-        if (message != null) {
-            req.setAttribute("errorMessage", message);
-            req.getRequestDispatcher("main.jsp").forward(req, res);
-        } else {
-            switch (requestPath) {
-                case "/annonces.user":
-                    annonceService.saveOrUpdateAnnonceUser(req, res, annonce);
-                    break;
-                case "/annonces.admin":
-                    annonceService.saveOrUpdateAnnonceAdmin(req, res, annonce);
-                    break;
-                case "updateForAdmin.annonce":
-                    annonceService.updateAnnonceAdmin(req, res);
-                    break;
-                case "updateForUser.annonce":
-                    annonceService.updateAnnonceUser(req, res);
-                    break;
-            }
+        switch (requestPath) {
+            case "/saveAnnonceForUser.annonce":
+                annonceService.saveOrUpdateAnnonceUser(req, res, annonce);
+                break;
+            case "/saveAnnonceForAdmin.annonce":
+                annonceService.saveOrUpdateAnnonceAdmin(req, res, annonce);
+                break;
+            case "/updateForAdmin.annonce":
+                annonceService.updateAnnonceAdmin(req, res, annonce);
+                break;
+            case "/updateForUser.annonce":
+                annonceService.updateAnnonceUser(req, res, annonce);
+                break;
         }
 
     }
