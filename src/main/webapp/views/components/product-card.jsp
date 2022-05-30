@@ -8,12 +8,13 @@
 <div class="col-md-12 col-lg-4 d-flex" data-aos="fade-right">
     <div class="card">
         <div class="card-img">
-            <img src="${annonce.annonceImages.get(0)}" alt="...">
+<%--            <img src="${annonce.annonceImages.get(0)}" alt="service1">--%>
+            <img src="assets/img/portfolio/portfolio-1.jpg" alt="service1">
         </div>
         <div class="card-body">
-            <h5 class="card-title"><a href="">${annonce.titre}</a></h5>
+            <h5 class="card-title"><a href="findOneForUser.annonce?annonceId=${annonce.id}">${annonce.titre}</a></h5>
             <p class="card-text">${annonce.description}</p>
-            <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+            <div class="read-more"><a href="findOneForUser.annonce?annonceId=${annonce.id}"><i class="bi bi-arrow-right"></i> Read More</a></div>
         </div>
     </div>
 </div>
