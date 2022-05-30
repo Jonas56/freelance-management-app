@@ -17,7 +17,7 @@
                 <li><a class="nav-link" href="findAnnoncesByName.annonce">Services</a></li>
                 <li><a class="nav-link" href="#">Offers</a></li>
 <%--                <li><a class="getstarted" href="#signInUp">Sign in</a></li>--%>
-                <li><a class="getstarted" href="#">My profile</a></li>
+                <li><a class="getstarted" href="findAllForUserProfile.annonce">My profile</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

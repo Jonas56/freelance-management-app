@@ -1,5 +1,6 @@
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900");
+
 body {
     line-height: 1.5;
     font-family: "Muli", sans-serif;
@@ -33,7 +34,7 @@ body {
     height: 30px;
     line-height: 18px;
     padding: 0 2px 0 2px;
-    border-radius:1px;
+    border-radius: 1px;
 }
 
 .search:hover input, .search input:focus {
@@ -43,10 +44,9 @@ body {
 
 .btn {
     height: 30px;
-    position: absolute;
     right: 0;
     top: 5px;
-    border-radius:1px;
+    border-radius: 1px;
 }
 
 
@@ -476,7 +476,7 @@ button {
     font-size: 15px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 15px 30px;
+    padding-bottom: 10px;
     border-radius: 4px;
 }
 
@@ -857,13 +857,16 @@ ul.pagination .active a {
     .dropdown-slide {
         position: static;
     }
+
     .dropdown-slide .open > a, .dropdown-slide .open > a:focus, .dropdown-slide .open > a:hover {
         background: transparent;
     }
+
     .dropdown-slide.full-width .dropdown-menu {
         left: 0 !important;
         right: 0 !important;
     }
+
     .dropdown-slide:hover .dropdown-menu {
         display: none;
         opacity: 1;
@@ -876,6 +879,7 @@ ul.pagination .active a {
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
     }
+
     .dropdown-slide .dropdown-menu {
         margin-top: 0;
         border-radius: 0;
@@ -2026,6 +2030,7 @@ ul.pagination .active a {
     .call-to-action .content-holder .store-btn-holder {
         margin-top: 25px;
     }
+
     .call-to-action .content-holder .store-btn-holder a:first-child img {
         margin-bottom: 10px;
     }

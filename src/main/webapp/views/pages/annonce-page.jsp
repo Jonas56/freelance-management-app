@@ -72,7 +72,7 @@
                     <div class="portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
                             <div class="swiper-slide">
-                                <img src="assets/img/portfolio/portfolio-1.jpg"
+                                <img src="https://broadwayinfosys.com/blog/wp-content/uploads/2017/04/Spring-Framework.png"
 <%--                                     src="../../assets/img/portfolio/portfolio-1.jpg"--%>
                                      alt="" />
                             </div>
