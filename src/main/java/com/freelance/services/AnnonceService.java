@@ -35,6 +35,12 @@ public class AnnonceService {
         req.getRequestDispatcher("/views/pages/list-services.jsp").forward(req, res);
     }
 
+    public void getAllAnnoncesForProfile(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        List<Annonce> annonces = annonceRepository.findAll();
+        req.setAttribute("annonces", annonces);
+        req.getRequestDispatcher("/views/pages/profile.jsp").forward(req, res);
+    }
+
     public void getAllAnnoncesForAdmin(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         List<Annonce> annonces = annonceRepository.findAll();
@@ -50,7 +56,23 @@ public class AnnonceService {
             Annonce annonce = annonceRepository.findById(annonceId);
             if (annonce != null) {
                 req.setAttribute("annonce", annonce);
-                req.getRequestDispatcher("main.jsp").forward(req, res);
+                req.getRequestDispatcher("views/pages/annonce-page.jsp").forward(req, res);
+            } else {
+                req.getRequestDispatcher("404.jsp").forward(req, res);
+            }
+        } catch (Exception e) {
+            req.getRequestDispatcher("404.jsp").forward(req, res);
+        }
+    }
+
+    public void getAnnonceForUserProfile(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+        try {
+            Integer annonceId = Integer.valueOf(req.getParameter("annonceId"));
+            Annonce annonce = annonceRepository.findById(annonceId);
+            if (annonce != null) {
+                req.setAttribute("annonce", annonce);
+                req.getRequestDispatcher("views/pages/edit-annonce.jsp").forward(req, res);
             } else {
                 req.getRequestDispatcher("404.jsp").forward(req, res);
             }
@@ -78,14 +100,17 @@ public class AnnonceService {
     public void saveOrUpdateAnnonceUser(HttpServletRequest req, HttpServletResponse res,
                                         Annonce annonce)
             throws ServletException, IOException {
-        String message = "Could not create this annonce";
-        boolean annonceCreated = annonceRepository.saveOrUpdate(annonce);
-        if (annonceCreated) {
-            message = "Annonce Created successfully!";
+        String message = annonceHelper.validateUserInput(annonce);
+        if (message == null) {
+            boolean annonceCreated = annonceRepository.saveOrUpdate(annonce);
+            if (annonceCreated) {
+                res.setStatus(201);
+                res.sendRedirect("findAllForUserProfile.annonce");
+            }
+        } else {
+            req.setAttribute("errorMessage", message);
+            req.getRequestDispatcher("views/pages/create-annonce.jsp").forward(req, res);
         }
-        req.setAttribute("errorMessage", message);
-        // TODO: replace with appropriate page
-        req.getRequestDispatcher("main.jsp").forward(req, res);
     }
 
     public void saveOrUpdateAnnonceAdmin(HttpServletRequest req, HttpServletResponse res,
@@ -106,8 +131,7 @@ public class AnnonceService {
         try {
             String message = annonceHelper.findByIdAndDelete(req.getParameter("annonceId"));
             req.setAttribute("errorMessage", message);
-            // TODO: replace with appropriate page
-            req.getRequestDispatcher("main.jsp").forward(req, res);
+            req.getRequestDispatcher("findAllForUserProfile.annonce").forward(req, res);
         } catch (Exception e) {
             req.getRequestDispatcher("404.jsp").forward(req, res);
         }
@@ -125,45 +149,70 @@ public class AnnonceService {
         }
     }
 
-    public void updateAnnonceUser(HttpServletRequest req, HttpServletResponse res)
+    public void updateAnnonceUser(HttpServletRequest req, HttpServletResponse res, Annonce annonce)
             throws ServletException, IOException {
-        Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
         String message = annonceHelper.validateUserInput(annonce);
-        if (annonce.getId() == null) {
-            message = "Annonce id cannot be null";
-        }
         if (message != null) {
             req.setAttribute("errorMessage", message);
-            req.getRequestDispatcher("main.jsp").forward(req, res);
+            req.setAttribute("annonce", annonce);
+            req.getRequestDispatcher("views/pages/edit-annonce.jsp").forward(req, res);
+        } else {
+            annonceHelper.findByIdAndUpdate(annonce.getId(), annonce);
+            res.sendRedirect("findAllForUserProfile.annonce");
         }
-        message = annonceHelper.findByIdAndUpdate(req.getParameter("annonceId"), annonce);
-        req.setAttribute("errorMessage", message);
-        // TODO: replace with appropriate page
-        req.getRequestDispatcher("main.jsp").forward(req, res);
     }
 
-    public void updateAnnonceAdmin(HttpServletRequest req, HttpServletResponse res)
+    public void updateAnnonceAdmin(HttpServletRequest req, HttpServletResponse res, Annonce annonce)
             throws ServletException, IOException {
-        Annonce annonce = annonceHelper.getAnnonceFromUserInput(req);
-        String message = annonceHelper.validateUserInput(annonce);
+        String message = null;
         if (annonce.getId() == null) {
             message = "Annonce id cannot be null";
         }
         if (message != null) {
             req.setAttribute("errorMessage", message);
-            req.getRequestDispatcher("main.jsp").forward(req, res);
+            req.getRequestDispatcher("views/pages/edit-annonce.jsp").forward(req, res);
         }
-        message = annonceHelper.findByIdAndUpdate(req.getParameter("annonceId"), annonce);
+        message = annonceHelper.findByIdAndUpdate(annonce.getId(), annonce);
         boolean annonceUpdated = annonceRepository.update(annonce);
         if (annonceUpdated) {
             message = "Annonce updated successfully!";
         }
         req.setAttribute("errorMessage", message);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("admin.jsp").forward(req, res);
+        req.getRequestDispatcher("views/pages/edit-annonce.jsp").forward(req, res);
     }
 
 
+    public void getAnnonceByName(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        try {
+            String annonceName = req.getParameter("annonceTitle");
+            if (annonceName != null) {
+                List<Annonce> annonces = annonceRepository.findByTitle(annonceName);
+                if (annonces != null) {
+                    req.setAttribute("annonces", annonces);
+                    req.setAttribute("annonceName", annonceName);
+                    req.getRequestDispatcher("views/pages/list-services.jsp").forward(req, res);
+                } else {
+                    req.getRequestDispatcher("404.jsp").forward(req, res);
+                }
+            } else {
+                List<Annonce> annonces = annonceRepository.findAll();
+                if (annonces != null) {
+                    req.setAttribute("annonces", annonces);
+                    req.getRequestDispatcher("views/pages/list-services.jsp").forward(req, res);
+                } else {
+                    req.getRequestDispatcher("404.jsp").forward(req, res);
+                }
+            }
+
+        } catch (Exception e) {
+            req.getRequestDispatcher("404.jsp").forward(req, res);
+        }
+    }
+
+    public void getCreateAnnonce(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("views/pages/create-annonce.jsp").forward(req, res);
+    }
 }
 
 

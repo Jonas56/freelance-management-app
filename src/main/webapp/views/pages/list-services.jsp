@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,197 +9,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>List Services</title>
 
-    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
 
     <!-- Template Main CSS File -->
-    <link href="../../assets/css/list-services.css" rel="stylesheet"/>
+    <link href="assets/css/list-services.css" rel="stylesheet"/>
+    <link href="assets/css/style.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="../../assets/vendor/fonts/ionicons.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/fonts/ionicons.min.css"/>
+
 </head>
 
 <body class="body-wrapper">
 
-<section class="page-search">
+<%@include file="../components/header.jsp" %>
+
+<section id="hero">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Advance Search -->
-                <div class="advance-search">
-                    <form>
-                        <div class="col-md-4 offset-md-4 mt-5 border border-success pt-3">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Search ......" aria-label="Recipient's username">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Search</span>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="row d-flex align-items-center mb-lg-5 mt-lg-5">
+            <%--   TODO: Customize search bar --%>
+            <form method="get" action="findAnnoncesByName.annonce">
+                <label>
+                    <input type="text" placeholder="Search..." name="annonceTitle" required>
+                </label>
+                <input type="submit" value="search">
+            </form>
         </div>
     </div>
 </section>
+
 <section class="section-sm">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="search-result bg-gray">
-                    <h2>Results For "Electronics"</h2>
-                    <p>123 Results on 12 December, 2017</p>
+                    <c:choose>
+                        <c:when test="${annonceName != null}">
+                            <h2>Results for "${annonceName}" </h2>
+                        </c:when>
+                        <c:otherwise>
+                            <h2>List Annonces</h2>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:set var="now" value="<%= new java.util.Date()%>"/>
+                    <!-- TODO: Make results number dynamic -->
+                    <p><c:out value="${annonces.size()}"/>
+                        Results on
+                        <fmt:formatDate type="date" value="${now}"/>
+                    </p>
                 </div>
             </div>
         </div>
         <div class="product-grid-list">
             <div class="row mt-30">
-                <div class="col-sm-12 col-lg-4 col-md-6">
-                    <!-- product card -->
-                    <div class="product-item bg-light">
-                        <div class="card">
-                            <div class="thumb-content">
-                                <!-- <div class="price">$200</div> -->
-                                <a href="#">
-                                    <img
-                                            class="card-img-top img-fluid"
-                                            src=""
-                                            alt="Card image cap"
-                                    />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">11inch Macbook Air</a>
-                                </h4>
-                                <ul class="list-inline product-meta">
-                                    <li class="list-inline-item">
-                                        <a href="#"
-                                        ><i class="fa fa-folder-open-o"></i>Electronics</a
-                                        >
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#"
-                                        ><i class="fa fa-calendar"></i>26th December</a
-                                        >
-                                    </li>
-                                </ul>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                                    elit. Explicabo, aliquam!
-                                </p>
-                                <div class="product-ratings">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-lg-4 col-md-6">
-                    <!-- product card -->
-                    <div class="product-item bg-light">
-                        <div class="card">
-                            <div class="thumb-content">
-                                <!-- <div class="price">$200</div> -->
-                                <a href="#">
-                                    <img
-                                            class="card-img-top img-fluid"
-                                            src=""
-                                            alt="Card image cap"
-                                    />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="">11inch Macbook Air</a>
-                                </h4>
-                                <ul class="list-inline product-meta">
-                                    <li class="list-inline-item">
-                                        <a href="#"
-                                        ><i class="fa fa-folder-open-o"></i>Electronics</a
-                                        >
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#"
-                                        ><i class="fa fa-calendar"></i>26th December</a
-                                        >
-                                    </li>
-                                </ul>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                                    elit. Explicabo, aliquam!
-                                </p>
-                                <div class="product-ratings">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item selected">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <c:choose>
+                    <c:when test="${annonces.size() != 0}">
+                        <c:forEach var="annonce" items="${annonces}">
+                            <%@include file="../components/annonce-card.jsp" %>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <h1 align="center">Oops! No resources Found!!</h1>
+                    </c:otherwise>
+                </c:choose>
             </div>
-        </div>
-        <div class="pagination justify-content-center">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </div>
 </section>
 
+<%@include file="../components/footer.jsp"%>
+
 <!-- Vendor JS Files -->
-<script src="../../assets/vendor/aos/aos.js"></script>
-<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 <!-- Template Main JS File -->
-<script src="../../assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

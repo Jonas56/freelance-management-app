@@ -15,4 +15,6 @@ public interface IAnnonceRepository {
     public boolean delete(Annonce annonce);
 
     public boolean update(Annonce annonce);
+
+    public List<Annonce> findByTitle(String title);
 }

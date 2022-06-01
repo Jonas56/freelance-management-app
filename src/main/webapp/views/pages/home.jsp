@@ -25,7 +25,7 @@
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/vendor/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/ionicons.min.css">
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -69,7 +69,7 @@
                     <%@include file="../components/product-card.jsp"%>
                 </c:forEach>
             </div>
-            <div align="center"> <a href="#" class="btn-get-started findOut">Find Out more</a> </div>
+            <div align="center"> <a href="findAnnoncesByName.annonce" class="btn-get-started findOut">Find Out more</a> </div>
 
         </div>
     </section><!-- End Services Section -->

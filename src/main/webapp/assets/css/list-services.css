@@ -1,9 +1,54 @@
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900");
+
 body {
     line-height: 1.5;
     font-family: "Muli", sans-serif;
 }
+
+#search {
+    float: right;
+    margin-top: 9px;
+    width: 250px;
+}
+
+.search {
+    padding: 5px 0;
+    width: 230px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    float: left;
+    line-height: 22px;
+}
+
+.search input {
+    position: absolute;
+    width: 0px;
+    float: Left;
+    margin-left: 210px;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+    height: 30px;
+    line-height: 18px;
+    padding: 0 2px 0 2px;
+    border-radius: 1px;
+}
+
+.search:hover input, .search input:focus {
+    width: 200px;
+    margin-left: 0px;
+}
+
+.btn {
+    height: 30px;
+    right: 0;
+    top: 5px;
+    border-radius: 1px;
+}
+
 
 p, li, input, select, button {
     font-family: "Muli", sans-serif;
@@ -95,7 +140,7 @@ label {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid #5672f9;
+    border-top: 10px solid #2a2e42;
     clear: both;
     transition: all .2s ease-in 0s;
 }
@@ -431,7 +476,7 @@ button {
     font-size: 15px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 15px 30px;
+    padding-bottom: 10px;
     border-radius: 4px;
 }
 
@@ -593,7 +638,7 @@ ul.pagination .active a {
 }
 
 .page-search {
-    background: #5672f9;
+    background: #213b52;
     padding: 30px 0;
 }
 
@@ -812,13 +857,16 @@ ul.pagination .active a {
     .dropdown-slide {
         position: static;
     }
+
     .dropdown-slide .open > a, .dropdown-slide .open > a:focus, .dropdown-slide .open > a:hover {
         background: transparent;
     }
+
     .dropdown-slide.full-width .dropdown-menu {
         left: 0 !important;
         right: 0 !important;
     }
+
     .dropdown-slide:hover .dropdown-menu {
         display: none;
         opacity: 1;
@@ -831,6 +879,7 @@ ul.pagination .active a {
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
     }
+
     .dropdown-slide .dropdown-menu {
         margin-top: 0;
         border-radius: 0;
@@ -1981,6 +2030,7 @@ ul.pagination .active a {
     .call-to-action .content-holder .store-btn-holder {
         margin-top: 25px;
     }
+
     .call-to-action .content-holder .store-btn-holder a:first-child img {
         margin-bottom: 10px;
     }
