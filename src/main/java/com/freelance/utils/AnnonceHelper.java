@@ -62,7 +62,7 @@ public class AnnonceHelper {
         return message;
     }
 
-    public String findByIdAndUpdate(String id, Annonce annonceUpdated){
+    public String findByIdAndUpdate(Integer id, Annonce annonceUpdated){
         String errorMessage = "Unable to update annonce!";
         Integer annonceId = Integer.valueOf(id);
         Annonce annonceExists = annonceRepository.findById(annonceId);

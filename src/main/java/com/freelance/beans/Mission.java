@@ -61,7 +61,7 @@ public class Mission implements Serializable {
         return missionImages;
     }
 
-    public void setMissionImages(LinkedList<String> clienImages) {
+    public void setMissionImages(LinkedList<String> missionImages) {
         this.missionImages = missionImages;
     }
 
@@ -69,18 +69,16 @@ public class Mission implements Serializable {
         return client;
     }
 
-    public void setClient(Freelancer freelancer) {
+    public void setClient(Client client) {
         this.client = client;
     }
 
     @Override
     public String toString() {
-        return "Annonce{" +
-                "id=" + id +
-                ", titre='" + titre + '\'' +
+        return "Mission{" +
+                "titre='" + titre + '\'' +
                 ", description='" + description + '\'' +
-                ", annonceImages=" + missionImages +
+                ", missionImages=" + missionImages +
                 '}';
     }
-
 }

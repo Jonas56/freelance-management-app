@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "clients")
 public class Client extends User {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
-    private List<Annonce> client;
+    private List<Mission> missions;
 
     public Client(int id, String name, String email, String password) {
         super(id, name, email, password);
