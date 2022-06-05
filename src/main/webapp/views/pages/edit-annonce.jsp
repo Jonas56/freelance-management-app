@@ -3,21 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- SITE TITTLE -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <%@include file="../components/head.jsp" %>
+
     <title>Edit Annonce</title>
 
-    <!--  Bootstrap-->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
-
-    <!-- Template Main CSS File -->
     <link href="assets/css/list-services.css" rel="stylesheet"/>
     <link href="assets/css/style.css" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="assets/vendor/fonts/ionicons.min.css"/>
 </head>
 
 <body class="body-wrapper">
@@ -25,7 +17,7 @@
 =            User Profile            =
 ===================================-->
 
-<%@include file="../components/header.jsp"%>
+<%@include file="../components/header.jsp" %>
 
 <section class="user-profile section">
     <div class="container">
@@ -92,7 +84,7 @@
                                 </div>
 
                                 <!-- Submit button -->
-                                    <button class="btn btn-primary" type="submit">Save My Changes</button>
+                                <button class="btn btn-primary" type="submit">Save My Changes</button>
                             </form>
                         </div>
                     </div>
@@ -103,10 +95,7 @@
 </section>
 
 <!-- Vendor JS Files -->
-<script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>

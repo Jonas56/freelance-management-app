@@ -4,19 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- SITE TITTLE -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>List Services</title>
+    <%@include file="../components/head.jsp" %>
 
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+    <title>List Services</title>
 
     <!-- Template Main CSS File -->
     <link href="assets/css/list-services.css" rel="stylesheet"/>
     <link href="assets/css/style.css" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="assets/vendor/fonts/ionicons.min.css"/>
 
 </head>
 
@@ -80,10 +74,7 @@
 <%@include file="../components/footer.jsp"%>
 
 <!-- Vendor JS Files -->
-<script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>

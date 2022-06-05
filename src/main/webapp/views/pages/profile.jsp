@@ -3,16 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- SITE TITTLE -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>
-        My Profile
-    </title>
-    <!--  Bootstrap-->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+
+    <%@include file="../components/head.jsp" %>
+
+    <title> My Profile </title>
 
     <!-- Template Main CSS File -->
     <link href="assets/css/list-services.css" rel="stylesheet"/>
@@ -83,7 +77,7 @@
                                                         class="view"
                                                         href="findOneForUser.annonce?annonceId=${annonce.id}"
                                                 >
-                                                    <i class="fa fa-eye"></i>
+                                                    <i class="icon">view</i>
                                                 </a>
                                             </li>
                                             <li class="list-inline-item">
@@ -95,7 +89,7 @@
                                                         class="edit"
                                                         href="findOneForUserProfile.annonce?annonceId=${annonce.id}"
                                                 >
-                                                    <i class="fa fa-pencil"></i>
+                                                    <i class="icon">edit</i>
                                                 </a>
                                             </li>
                                             <li class="list-inline-item">
@@ -106,7 +100,7 @@
                                                         class="delete"
                                                         href="deleteForUser.annonce?annonceId=${annonce.id}"
                                                 >
-                                                    <i class="fa fa-trash"></i>
+                                                    <i class="icon">delete</i>
                                                 </a>
                                             </li>
                                         </ul>
