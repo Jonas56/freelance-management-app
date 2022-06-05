@@ -3,26 +3,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <%@include file="../components/head.jsp" %>
     <!-- SITE TITTLE -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Create Annonce</title>
-
-    <!--  Bootstrap-->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
 
     <!-- Template Main CSS File -->
     <link href="assets/css/list-services.css" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="assets/vendor/fonts/ionicons.min.css"/>
+    <link href="assets/css/style.css" rel="stylesheet"/>
 </head>
 
 <body class="body-wrapper">
-<!--==================================
-=            User Profile            =
-===================================-->
+<!-- ======= Header ======= -->
+<%@include file="../components/header.jsp" %>
+<!-- End Header -->
 
 <section class="user-profile section">
     <div class="container">
@@ -47,7 +40,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="widget personal-info">
-                            <h3 class="widget-header user">Edit Annonce Information</h3>
+                            <h3 class="widget-header user">Add new Annonce</h3>
                             <form action="saveAnnonceForUser.annonce" method="post">
                                 <!-- Title -->
                                 <div class="form-group">
@@ -100,10 +93,7 @@
 </section>
 
 <!-- Vendor JS Files -->
-<script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
