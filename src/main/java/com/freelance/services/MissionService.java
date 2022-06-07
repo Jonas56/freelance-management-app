@@ -69,7 +69,7 @@ public class MissionService {
             Mission mission = missionRepository.findById(missionId);
             if (mission != null) {
                 req.setAttribute("mission", mission);
-                req.getRequestDispatcher("admin.jsp").forward(req, res);
+                req.getRequestDispatcher("annonce-management.jsp").forward(req, res);
             } else {
                 req.getRequestDispatcher("404.jsp").forward(req, res);
             }
@@ -101,7 +101,7 @@ public class MissionService {
         }
         req.setAttribute("errorMessage", message);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("admin.jsp").forward(req, res);
+        req.getRequestDispatcher("annonce-management.jsp").forward(req, res);
     }
 
     public void deleteMissionUser(HttpServletRequest req, HttpServletResponse res)
@@ -163,7 +163,7 @@ public class MissionService {
         }
         req.setAttribute("errorMessage", message);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("admin.jsp").forward(req, res);
+        req.getRequestDispatcher("annonce-management.jsp").forward(req, res);
     }
 
 

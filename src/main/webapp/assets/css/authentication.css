@@ -10,36 +10,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
-    --blue: #4e73df;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #e74a3b;
-    --orange: #fd7e14;
-    --yellow: #f6c23e;
-    --green: #1cc88a;
-    --teal: #20c9a6;
-    --cyan: #36b9cc;
-    --white: #fff;
-    --gray: #858796;
-    --gray-dark: #5a5c69;
-    --primary: #4e73df;
-    --secondary: #858796;
-    --success: #1cc88a;
-    --info: #36b9cc;
-    --warning: #f6c23e;
-    --danger: #e74a3b;
-    --light: #f8f9fc;
-    --dark: #5a5c69;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
+
 
 *,
 *::before,
@@ -54,9 +25,7 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block;
-}
+
 
 body {
     margin: 0;
@@ -159,7 +128,7 @@ sup {
 }
 
 a {
-    color: #4e73df;
+    color: #213b52;
     text-decoration: none;
     background-color: transparent;
 }
@@ -10041,11 +10010,11 @@ a:focus {
 }
 
 .border-left-primary {
-    border-left: 0.25rem solid #4e73df !important;
+    border-left: 0.25rem solid #213b52 !important;
 }
 
 .border-bottom-primary {
-    border-bottom: 0.25rem solid #4e73df !important;
+    border-bottom: 0.25rem solid #213b52 !important;
 }
 
 .border-left-secondary {
@@ -10231,8 +10200,8 @@ a:focus {
 }
 
 .topbar .dropdown-list .dropdown-header {
-    background-color: #4e73df;
-    border: 1px solid #4e73df;
+    background-color: #213b52;
+    border: 1px solid #213b52;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     color: #fff;
@@ -10406,7 +10375,7 @@ a:focus {
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active {
-    color: #4e73df;
+    color: #213b52;
     font-weight: 700;
 }
 
@@ -11249,7 +11218,7 @@ form.user .btn-user {
     content: attr(data-text);
     position: absolute;
     left: -2px;
-    text-shadow: 1px 0 #4e73df;
+    text-shadow: 1px 0 #213b52;
     top: 0;
     color: #5a5c69;
     background: #f8f9fc;
