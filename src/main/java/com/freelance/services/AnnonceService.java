@@ -46,7 +46,7 @@ public class AnnonceService {
         List<Annonce> annonces = annonceRepository.findAll();
         req.setAttribute("annonces", annonces);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("annonce-details.jsp").forward(req, res);
+        req.getRequestDispatcher("views/pages/annonce-management.jsp").forward(req, res);
     }
 
     public void getAnnonceForUser(HttpServletRequest req, HttpServletResponse res)
@@ -88,7 +88,7 @@ public class AnnonceService {
             Annonce annonce = annonceRepository.findById(annonceId);
             if (annonce != null) {
                 req.setAttribute("annonce", annonce);
-                req.getRequestDispatcher("admin.jsp").forward(req, res);
+                req.getRequestDispatcher("annonce-management.jsp").forward(req, res);
             } else {
                 req.getRequestDispatcher("404.jsp").forward(req, res);
             }
@@ -123,7 +123,7 @@ public class AnnonceService {
         }
         req.setAttribute("errorMessage", message);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("admin.jsp").forward(req, res);
+        req.getRequestDispatcher("annonce-management.jsp").forward(req, res);
     }
 
     public void deleteAnnonceUser(HttpServletRequest req, HttpServletResponse res)
@@ -143,7 +143,7 @@ public class AnnonceService {
             String message = annonceHelper.findByIdAndDelete(req.getParameter("annonceId"));
             req.setAttribute("errorMessage", message);
             // TODO: replace with appropriate page
-            req.getRequestDispatcher("main.jsp").forward(req, res);
+            req.getRequestDispatcher("views/pages/annonce-management.jsp").forward(req, res);
         } catch (Exception e) {
             req.getRequestDispatcher("404.jsp").forward(req, res);
         }
