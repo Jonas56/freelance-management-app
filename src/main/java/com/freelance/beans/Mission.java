@@ -12,7 +12,7 @@ public class Mission implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    // trying to push
+
     @Column(nullable = false)
     private String titre;
     @Column(nullable = false)
