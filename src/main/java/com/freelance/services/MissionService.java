@@ -1,11 +1,7 @@
 package com.freelance.services;
 
-import com.freelance.beans.Annonce;
 import com.freelance.beans.Mission;
-import com.freelance.models.IAnnonceRepository;
-import com.freelance.models.IClientRepository;
 import com.freelance.models.IMissionRepository;
-import com.freelance.utils.AnnonceHelper;
 import com.freelance.utils.MissionHelper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -128,7 +124,7 @@ public class MissionService {
         }
     }
 
-    public void updateMissionUser(HttpServletRequest req, HttpServletResponse res)
+    public void updateMissionUser(HttpServletRequest req, HttpServletResponse res, Mission mission)
             throws ServletException, IOException {
         Mission mission = missionHelper.getMissionFromUserInput(req);
         String message = missionHelper.validateUserInput(mission);
@@ -145,7 +141,7 @@ public class MissionService {
         req.getRequestDispatcher("main.jsp").forward(req, res);
     }
 
-    public void updateMissionAdmin(HttpServletRequest req, HttpServletResponse res)
+    public void updateMissionAdmin(HttpServletRequest req, HttpServletResponse res, Mission mission)
             throws ServletException, IOException {
         Mission mission = missionHelper.getMissionFromUserInput(req);
         String message = missionHelper.validateUserInput(mission);
