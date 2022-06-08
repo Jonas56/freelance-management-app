@@ -6,15 +6,16 @@ import com.freelance.beans.Mission;
 import java.util.List;
 
 public interface IMissionRepository {
-    public boolean saveOrUpdate(Mission mission);
+    boolean saveOrUpdate(Mission mission);
 
-    public List<Mission> findAll();
+    List<Mission> findAll();
 
-    public Mission findById(Integer id);
+    Mission findById(Integer id);
 
-    public boolean delete(Mission mission);
+    boolean delete(Mission mission);
 
-    public boolean update(Mission mission);
-    public List<Mission> findByTitle(String title);
+    boolean update(Mission mission);
+
+    List<Mission> findByTitle(String title);
 
 }

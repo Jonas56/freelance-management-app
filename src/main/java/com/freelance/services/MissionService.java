@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MissionService {
@@ -29,10 +31,10 @@ public class MissionService {
 
     public void getAllMissionsForUser(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        List<Mission> missions = missionRepository.findAll();
-        req.setAttribute("missions", missions);
+        List<Mission> offers = missionRepository.findAll();
+        req.setAttribute("offers", offers);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("/views/pages/list-services.jsp").forward(req, res);
+        req.getRequestDispatcher("/views/pages/list-offers.jsp").forward(req, res);
     }
     public void getAllMissionsForProfile(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         List<Mission> missions = missionRepository.findAll();

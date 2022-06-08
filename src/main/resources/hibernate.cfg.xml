@@ -15,5 +15,6 @@
 		<mapping class="com.freelance.beans.Freelancer" />
 		<mapping class="com.freelance.beans.Mission" />
 		<mapping class="com.freelance.beans.Client" />
+		<mapping class="com.freelance.beans.Admin" />
 	</session-factory>
 </hibernate-configuration>
