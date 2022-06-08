@@ -74,7 +74,7 @@ public class MissionHelper {
     }
 
 
-    public String findByIdAndUpdate(String id , Mission missionUpdated )
+    public String findByIdAndUpdate(Integer id , Mission missionUpdated )
     {
         String errorMessage = "Unable to update mission!";
         Integer missionId = Integer.valueOf(id);

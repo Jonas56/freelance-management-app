@@ -43,27 +43,27 @@ public class MissionController extends HttpServlet {
             case "/findAllForHome.mission":
                 missionService.getAllMissionsForHome(req, res);
                 break;
-//            case "/findAllForUserProfile.mission":
-//                missionService.getAllMissionsForProfile(req, res);
-//                break;
+            case "/findAllForUserProfile.mission":
+                missionService.getAllMissionsForProfile(req, res);
+                break;
             case "/findAllForUser.mission":
                 missionService.getAllMissionsForUser(req, res);
                 break;
             case "/findAllForAdmin.mission":
                 missionService.getAllMissionsForAdmin(req, res);
                 break;
-//            case "/findAnnoncesByName.mission":
-//                missionService.getMissionByName(req, res);
-//                break;
+            case "/findAnnoncesByName.mission":
+                missionService.getMissionByName(req, res);
+                break;
             case "/findOneForUser.mission":
                missionService.getMissionForUser(req, res);
                 break;
-//            case "/createOneForUser.mission":
-//                missionService.getCreateMession(req, res);
-//                break;
-//            case "/findOneForUserProfile.mission":
-//                missionService.getMisionForUserProfile(req, res);
-//                break;
+            case "/createOneForUser.mission":
+                missionService.getCreateMission(req, res);
+                break;
+            case "/findOneForUserProfile.mission":
+                missionService.getMissionForUserProfile(req, res);
+                break;
             case "/findOneForAdmin.mission":
                 missionService.getMissionForAdmin(req, res);
                 break;
@@ -87,7 +87,7 @@ public class MissionController extends HttpServlet {
         String requestPath = req.getServletPath();
         Mission mission = missionHelper.getMissionFromUserInput(req);
         switch (requestPath) {
-            case "/saveMissionForUser.missiob":
+            case "/saveMissionForUser.mission":
                 missionService.saveOrUpdateMissionUser(req, res, mission);
                 break;
             case "/saveMissionForAdmin.mission":

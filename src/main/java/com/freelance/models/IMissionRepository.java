@@ -15,5 +15,6 @@ public interface IMissionRepository {
     public boolean delete(Mission mission);
 
     public boolean update(Mission mission);
+    public List<Mission> findByTitle(String title);
 
 }

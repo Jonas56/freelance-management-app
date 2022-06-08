@@ -1,5 +1,6 @@
 package com.freelance.services;
 
+import com.freelance.beans.Annonce;
 import com.freelance.beans.Mission;
 import com.freelance.models.IMissionRepository;
 import com.freelance.utils.MissionHelper;
@@ -33,6 +34,11 @@ public class MissionService {
         // TODO: replace with appropriate page
         req.getRequestDispatcher("/views/pages/list-services.jsp").forward(req, res);
     }
+    public void getAllMissionsForProfile(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        List<Mission> missions = missionRepository.findAll();
+        req.setAttribute("missions", missions);
+        req.getRequestDispatcher("/views/pages/profile.jsp").forward(req, res);
+    }
 
     public void getAllMissionsForAdmin(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
@@ -50,6 +56,21 @@ public class MissionService {
             if (mission != null) {
                 req.setAttribute("mission", mission);
                 req.getRequestDispatcher("main.jsp").forward(req, res);
+            } else {
+                req.getRequestDispatcher("404.jsp").forward(req, res);
+            }
+        } catch (Exception e) {
+            req.getRequestDispatcher("404.jsp").forward(req, res);
+        }
+    }
+    public void getMissionForUserProfile(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+        try {
+            Integer missionId = Integer.valueOf(req.getParameter("missionId"));
+            Mission mission = missionRepository.findById(missionId);
+            if (mission != null) {
+                req.setAttribute("mission", mission);
+                req.getRequestDispatcher("views/pages/edit-mission.jsp").forward(req, res);
             } else {
                 req.getRequestDispatcher("404.jsp").forward(req, res);
             }
@@ -126,40 +147,65 @@ public class MissionService {
 
     public void updateMissionUser(HttpServletRequest req, HttpServletResponse res, Mission mission)
             throws ServletException, IOException {
-        Mission mission = missionHelper.getMissionFromUserInput(req);
+
         String message = missionHelper.validateUserInput(mission);
-        if (mission.getId() == null) {
-            message = "Mission id cannot be null";
-        }
         if (message != null) {
             req.setAttribute("errorMessage", message);
-            req.getRequestDispatcher("main.jsp").forward(req, res);
+            req.setAttribute("mission", mission);
+            req.getRequestDispatcher("views/pages/edit-mission.jsp").forward(req, res);
+        } else {
+            missionHelper.findByIdAndUpdate(mission.getId(), mission);
+            res.sendRedirect("findAllForUserProfile.mission");
         }
-        message = missionHelper.findByIdAndUpdate(req.getParameter("missionId"), mission);
-        req.setAttribute("errorMessage", message);
-        // TODO: replace with appropriate page
-        req.getRequestDispatcher("main.jsp").forward(req, res);
     }
 
     public void updateMissionAdmin(HttpServletRequest req, HttpServletResponse res, Mission mission)
             throws ServletException, IOException {
-        Mission mission = missionHelper.getMissionFromUserInput(req);
-        String message = missionHelper.validateUserInput(mission);
+        String message = null;
         if (mission.getId() == null) {
             message = "Mission id cannot be null";
         }
         if (message != null) {
             req.setAttribute("errorMessage", message);
-            req.getRequestDispatcher("main.jsp").forward(req, res);
+            req.getRequestDispatcher("views/pages/edit-mission.jsp").forward(req, res);
         }
-        message = missionHelper.findByIdAndUpdate(req.getParameter("missionId"), mission);
+        message = missionHelper.findByIdAndUpdate(mission.getId(), mission);
         boolean missionUpdated = missionRepository.update(mission);
         if (missionUpdated) {
             message = "Mission updated successfully!";
         }
         req.setAttribute("errorMessage", message);
         // TODO: replace with appropriate page
-        req.getRequestDispatcher("annonce-management.jsp").forward(req, res);
+        req.getRequestDispatcher("views/pages/edit-mission.jsp").forward(req, res);
+    }
+    public void getMissionByName(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        try {
+            String missionName = req.getParameter("missionTitle");
+            if (missionName != null) {
+                List<Mission> missions = missionRepository.findByTitle(missionName);
+                if (missions != null) {
+                    req.setAttribute("missions", missions);
+                    req.setAttribute("missionName", missionName);
+                    req.getRequestDispatcher("views/pages/list-services.jsp").forward(req, res);
+                } else {
+                    req.getRequestDispatcher("404.jsp").forward(req, res);
+                }
+            } else {
+                List<Mission> missions = missionRepository.findAll();
+                if (missions != null) {
+                    req.setAttribute("missions", missions);
+                    req.getRequestDispatcher("views/pages/list-services.jsp").forward(req, res);
+                } else {
+                    req.getRequestDispatcher("404.jsp").forward(req, res);
+                }
+            }
+
+        } catch (Exception e) {
+            req.getRequestDispatcher("404.jsp").forward(req, res);
+        }
+    }
+    public void getCreateMission(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("views/pages/create-mission.jsp").forward(req, res);
     }
 
 
