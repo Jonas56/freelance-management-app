@@ -82,6 +82,15 @@
             <version>2.0.0</version>
         </dependency>
 
+        <!-- a dependency that has been add for crypting the authentication -->
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>5.2.0.RELEASE</version>
+        </dependency>
+        <!-- -->
+
 
     </dependencies>
 

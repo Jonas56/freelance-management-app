@@ -46,6 +46,8 @@
                 <c:forEach var="annonce" items="${annonces}">
                     <%@include file="../components/product-card.jsp"%>
                 </c:forEach>
+
+
             </div>
             <div align="center"> <a href="findAnnoncesByName.annonce" class="btn-get-started findOut">Find Out more</a> </div>
 

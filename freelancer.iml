@@ -15,7 +15,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="default" />
+        </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
@@ -65,5 +67,6 @@
     <orderEntry type="library" name="Maven: jakarta.el:jakarta.el-api:4.0.0" level="project" />
     <orderEntry type="library" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.2.0.RELEASE" level="project" />
   </component>
 </module>

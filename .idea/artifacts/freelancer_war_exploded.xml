@@ -41,6 +41,7 @@
           <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:4.0.0" />
           <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.0" />
           <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:2.0.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:5.2.0.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
