@@ -16,8 +16,14 @@
                 <li><a class="nav-link active" href="findAllForHome.annonce">Home</a></li>
                 <li><a class="nav-link" href="findAnnoncesByName.annonce">Services</a></li>
                 <li><a class="nav-link" href="#">Offers</a></li>
-<%--                <li><a class="getstarted" href="#signInUp">Sign in</a></li>--%>
-                <li><a class="getstarted" href="findAllForUserProfile.annonce">My profile</a></li>
+                <c:choose>
+                    <c:when test="${sessionScope.email == null}">
+                        <li><a class="getstarted" href="#">Sign in</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a class="getstarted" href="findAllForUserProfile.annonce">My profile</a></li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

@@ -1,6 +1,6 @@
 package com.freelance.models;
 
-import com.freelance.beans.Annonce;
+import com.freelance.beans.Client;
 import com.freelance.beans.Freelancer;
 import com.freelance.config.HibernateUtil;
 import org.hibernate.Criteria;
@@ -10,20 +10,19 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-public class FreelancerRepository extends CrudRepository<Freelancer, Integer> implements IFreelanceRepository {
-
-    public FreelancerRepository() {
-        super(Freelancer.class);
+public class ClientRepository extends CrudRepository<Client, Integer> implements IClientRepository {
+    public ClientRepository() {
+        super(Client.class);
     }
 
     @Override
-    public Freelancer findByEmail(String email) {
+    public Client findByEmail(String email) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Freelancer.class);
         criteria.add(Restrictions.like("email", email, MatchMode.ANYWHERE));
-        List<Freelancer> freelancers = (List<Freelancer>) criteria.list();
-        if (freelancers.size() != 0) {
-            return freelancers.get(0);
+        List<Client> clients = (List<Client>) criteria.list();
+        if (clients.size() != 0) {
+            return clients.get(0);
         } else return null;
     }
 }

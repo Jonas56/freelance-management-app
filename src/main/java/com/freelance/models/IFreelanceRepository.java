@@ -7,13 +7,15 @@ import java.util.List;
 
 public interface IFreelanceRepository {
 
-    public boolean saveOrUpdate(Freelancer freelancer);
+    boolean saveOrUpdate(Freelancer freelancer);
 
-    public List<Freelancer> findAll();
+    List<Freelancer> findAll();
 
-    public Freelancer findById(Integer id);
+    Freelancer findById(Integer id);
 
-    public boolean delete(Freelancer freelancer);
+    boolean delete(Freelancer freelancer);
 
-    public boolean update(Freelancer freelancer);
+    boolean update(Freelancer freelancer);
+
+    Freelancer findByEmail(String email);
 }

@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
 
-    <title>SB Admin 2 - Login</title>
+    <%@include file="../components/head.jsp" %>
 
-    <!-- Favicons -->
-    <link href="../../assets/img/favicon.png" rel="icon"/>
-    <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
-
-    <!--  Bootstrap-->
-    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+    <title>Login</title>
 
     <!-- Template Main CSS File -->
-    <link href="../../assets/css/authentication.css" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="../../assets/vendor/fonts/ionicons.min.css"/>
+    <link href="assets/css/authentication.css" rel="stylesheet"/>
 </head>
 
 <body class="bg-gradient-secondary">
@@ -41,7 +25,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" action="login" method="post">
                                     <div class="form-group">
                                         <input
                                                 type="email"
@@ -50,6 +34,7 @@
                                                 id="exampleInputEmail"
                                                 aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..."
+                                                required
                                         />
                                     </div>
                                     <div class="form-group">
@@ -59,27 +44,31 @@
                                                 name="password"
                                                 id="exampleInputPassword"
                                                 placeholder="Password"
+                                                required
                                         />
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input
-                                                    type="checkbox"
-                                                    class="custom-control-input"
-                                                    name="remember"
-                                                    id="customCheck"
-                                            />
-                                            <label class="custom-control-label" for="customCheck"
-                                            >Remember Me</label
-                                            >
+                                    <div class="form-group row text-center">
+                                        <div class="form-check col-3">
+                                            <input class="form-check-input" type="radio" name="type"
+                                                   id="flexRadioDefault1" value="client">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Client
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-3">
+                                            <input class="form-check-input" type="radio" name="type"
+                                                   id="flexRadioDefault2" checked value="freelancer">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Freelancer
+                                            </label>
                                         </div>
                                     </div>
-                                    <a
-                                            href="#"
+                                    <button
                                             class="btn btn-primary btn-user btn-block"
+                                            type="submit"
                                     >
                                         Login
-                                    </a>
+                                    </button>
                                     <hr/>
                                     <a
                                             href="#"
@@ -102,7 +91,7 @@
                                     >
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="./register.jsp"
+                                    <a class="small" href="register.user"
                                     >Create an Account!</a
                                     >
                                 </div>
@@ -116,12 +105,12 @@
 </div>
 
 <!-- Vendor JS Files -->
-<script src="../../assets/vendor/aos/aos.js"></script>
-<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 <!-- Template Main JS File -->
-<script src="../../assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
