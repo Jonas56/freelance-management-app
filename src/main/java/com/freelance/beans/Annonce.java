@@ -21,6 +21,8 @@ public class Annonce implements Serializable {
 
     @Column(name = "images", nullable = false)
     private LinkedList<String> annonceImages;
+    
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "freelancer_id")

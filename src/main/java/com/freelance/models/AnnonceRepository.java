@@ -24,4 +24,12 @@ public class AnnonceRepository extends CrudRepository<Annonce, Integer> implemen
         criteria.add(Restrictions.like("titre", title, MatchMode.ANYWHERE));
         return (List<Annonce>) criteria.list();
     }
+
+    @Override
+    public List<Annonce> findByFreelancerId(Integer id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Annonce.class);
+        criteria.add(Restrictions.like("freelancer", String.valueOf(id), MatchMode.ANYWHERE));
+        return (List<Annonce>) criteria.list();
+    }
 }

@@ -9,9 +9,9 @@
                  alt="profile-avatar" class="rounded-circle"/>
         </div>
         <!-- User Name -->
-        <h5 class="text-center"> Jonas Tesla </h5>
+        <h5 class="text-center"> ${sessionScope.currentUser.name} </h5>
         <p>Joined February 06, 2017</p>
-        <p><a href="#" type="btn btn-primary"> Edit Profile</a></p>
+        <p><a href="login" type="btn btn-primary"> Logout </a></p>
         <%-- href="EditProfileForUser.user?userId=1"> --%>
     </div>
 </div>

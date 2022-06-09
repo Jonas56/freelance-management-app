@@ -17,4 +17,6 @@ public interface IAnnonceRepository {
     public boolean update(Annonce annonce);
 
     public List<Annonce> findByTitle(String title);
+
+    List<Annonce> findByFreelancerId(Integer id);
 }

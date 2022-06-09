@@ -57,7 +57,7 @@ public class MissionService {
             Mission mission = missionRepository.findById(missionId);
             if (mission != null) {
                 req.setAttribute("mission", mission);
-                req.getRequestDispatcher("main.jsp").forward(req, res);
+                req.getRequestDispatcher("views/pages/mission-page.jsp").forward(req, res);
             } else {
                 req.getRequestDispatcher("404.jsp").forward(req, res);
             }

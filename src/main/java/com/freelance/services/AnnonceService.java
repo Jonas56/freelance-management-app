@@ -1,24 +1,31 @@
 package com.freelance.services;
 
 import com.freelance.beans.Annonce;
+import com.freelance.beans.Freelancer;
 import com.freelance.models.IAnnonceRepository;
+import com.freelance.models.IFreelanceRepository;
 import com.freelance.utils.AnnonceHelper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class AnnonceService {
 
     private final IAnnonceRepository annonceRepository;
     private final AnnonceHelper annonceHelper;
+    private final IFreelanceRepository freelanceRepository;
 
     public AnnonceService(IAnnonceRepository annonceRepository,
-                          AnnonceHelper annonceHelper) {
+                          AnnonceHelper annonceHelper, IFreelanceRepository freelanceRepository) {
         this.annonceRepository = annonceRepository;
         this.annonceHelper = annonceHelper;
+        this.freelanceRepository = freelanceRepository;
     }
 
     public void getAllAnnoncesForHome(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -31,12 +38,14 @@ public class AnnonceService {
             throws ServletException, IOException {
         List<Annonce> annonces = annonceRepository.findAll();
         req.setAttribute("annonces", annonces);
-        // TODO: replace with appropriate page
         req.getRequestDispatcher("/views/pages/list-services.jsp").forward(req, res);
     }
 
     public void getAllAnnoncesForProfile(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        List<Annonce> annonces = annonceRepository.findAll();
+        HttpSession session = req.getSession();
+        Freelancer freelancer = (Freelancer) session.getAttribute("currentUser");
+        Freelancer freelancer1 = freelanceRepository.findById(freelancer.getId());
+        List<Annonce> annonces = freelancer1.getAnnonces();
         req.setAttribute("annonces", annonces);
         req.getRequestDispatcher("/views/pages/profile.jsp").forward(req, res);
     }

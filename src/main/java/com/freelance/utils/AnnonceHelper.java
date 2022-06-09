@@ -1,8 +1,10 @@
 package com.freelance.utils;
 
 import com.freelance.beans.Annonce;
+import com.freelance.beans.Freelancer;
 import com.freelance.models.IAnnonceRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import java.util.LinkedList;
 
@@ -28,6 +30,7 @@ public class AnnonceHelper {
     }
 
     public Annonce getAnnonceFromUserInput(HttpServletRequest req) {
+        HttpSession session = req.getSession();
         Annonce annonce = new Annonce();
         Integer annonceId = null;
         try {
@@ -45,6 +48,7 @@ public class AnnonceHelper {
         annonce.setAnnonceImages(imageList);
         annonce.setDescription(description);
         annonce.setTitre(titre);
+        annonce.setFreelancer((Freelancer) session.getAttribute("currentUser"));
 
         return annonce;
     }

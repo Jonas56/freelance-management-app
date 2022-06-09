@@ -26,4 +26,7 @@ public class Freelancer extends User {
     public Freelancer() {
     }
 
+    public List<Annonce> getAnnonces() {
+        return annonces;
+    }
 }

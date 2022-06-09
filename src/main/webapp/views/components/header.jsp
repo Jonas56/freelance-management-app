@@ -15,10 +15,10 @@
             <ul>
                 <li><a class="nav-link active" href="findAllForHome.annonce">Home</a></li>
                 <li><a class="nav-link" href="findAnnoncesByName.annonce">Services</a></li>
-                <li><a class="nav-link" href="#">Offers</a></li>
+                <li><a class="nav-link" href="findAllForUser.mission">Offers</a></li>
                 <c:choose>
                     <c:when test="${sessionScope.email == null}">
-                        <li><a class="getstarted" href="#">Sign in</a></li>
+                        <li><a class="getstarted" href="login">Sign in</a></li>
                     </c:when>
                     <c:otherwise>
                         <li><a class="getstarted" href="findAllForUserProfile.annonce">My profile</a></li>

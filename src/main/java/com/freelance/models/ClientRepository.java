@@ -18,7 +18,7 @@ public class ClientRepository extends CrudRepository<Client, Integer> implements
     @Override
     public Client findByEmail(String email) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Freelancer.class);
+        Criteria criteria = session.createCriteria(Client.class);
         criteria.add(Restrictions.like("email", email, MatchMode.ANYWHERE));
         List<Client> clients = (List<Client>) criteria.list();
         if (clients.size() != 0) {

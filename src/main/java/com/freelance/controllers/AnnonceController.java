@@ -2,7 +2,9 @@ package com.freelance.controllers;
 
 import com.freelance.beans.Annonce;
 import com.freelance.models.AnnonceRepository;
+import com.freelance.models.FreelancerRepository;
 import com.freelance.models.IAnnonceRepository;
+import com.freelance.models.IFreelanceRepository;
 import com.freelance.services.AnnonceService;
 import com.freelance.utils.AnnonceHelper;
 import jakarta.servlet.ServletException;
@@ -24,8 +26,9 @@ public class AnnonceController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         IAnnonceRepository annonceRepository = new AnnonceRepository();
+        IFreelanceRepository freelanceRepository = new FreelancerRepository();
         annonceHelper = new AnnonceHelper(annonceRepository);
-        annonceService = new AnnonceService(annonceRepository, annonceHelper);
+        annonceService = new AnnonceService(annonceRepository, annonceHelper, freelanceRepository);
     }
 
     @Override

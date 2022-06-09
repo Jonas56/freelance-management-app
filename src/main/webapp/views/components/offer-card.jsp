@@ -4,7 +4,7 @@
         <div class="card">
             <div class="thumb-content">
 <%--               <div class="price">$200</div>--%>
-                <a href="findOneForUser.annonce?offerId=${offer.id}">
+                <a href="findOneForUser.mission?missionId=${offer.id}">
                     <img
                             class="card-img-top img-fluid"
                             src="assets/img/portfolio/portfolio-2.jpg"
@@ -15,16 +15,16 @@
             </div>
             <div class="card-body">
                 <h4 class="card-title">
-                    <a href="findOneForUser.annonce?offerId=${offer.id}">${offer.titre}</a>
+                    <a href="findOneForUser.mission?missionId=${offer.id}">${offer.titre}</a>
                 </h4>
                 <ul class="list-inline product-meta">
                     <li class="list-inline-item">
-                        <a href="findOneForUser.annonce?offerId=${offer.id}"
+                        <a href="findOneForUser.mission?missionId=${offer.id}"
                         ><i class="fa fa-folder-open-o"></i>Electronics</a
                         >
                     </li>
                     <li class="list-inline-item">
-                        <a href="findOneForUser.annonce?offerId=${offer.id}"
+                        <a href="findOneForUser.mission?missionId=${offer.id}"
                         ><i class="fa fa-calendar"></i>26th December</a
                         >
                     </li>

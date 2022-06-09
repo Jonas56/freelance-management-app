@@ -46,7 +46,7 @@
                         <c:forEach var="annonce" items="${annonces}">
                             <tr>
                                 <td class="product-thumb">
-                                    <img width="80px" height="auto" src="assets/img/nest.svg"
+                                    <img width="80px" height="auto" src="assets/img/services-3.jpg"
                                         <%--  src="${annonce.annonceImages.get(0)}" --%>
                                          alt="image description"/>
                                 </td>
